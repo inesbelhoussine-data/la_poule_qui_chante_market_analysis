@@ -1,365 +1,375 @@
-# 🌍 International Poultry Market Analysis
 
-## 📌 Contexte
+# La Poule qui Chante — International Market Expansion & Strategic Market Intelligence
 
-**La Poule qui Chante** est une entreprise française du secteur agroalimentaire spécialisée dans la volaille. Jusqu'à présent principalement présente sur le marché français, l'entreprise souhaite étudier des opportunités de développement à l'international.
+## Executive Summary
 
-L'objectif de ce projet est d'exploiter des données économiques, démographiques et sectorielles afin d'identifier des marchés présentant des caractéristiques intéressantes pour une future stratégie d'exportation.
+Analyse stratégique réalisée pour accompagner le comité
+exécutif de La Poule qui Chante dans l'identification
+de nouvelles opportunités de développement international.
 
-L'analyse est réalisée sans présélection de pays ou de continent afin de laisser les données faire émerger les différents profils de marchés.
+L'objectif consiste à identifier les marchés présentant
+des caractéristiques favorables à une stratégie
+d'exportation de volaille, en tenant compte de leur
+potentiel commercial, de leur environnement économique
+et du risque politique.
 
----
+L'analyse de 161 pays et territoires a permis
+d'identifier 21 marchés candidats, puis 7 marchés
+à approfondir, dont 3 prioritaires :
 
-## 🎯 Problématique
+- Pays-Bas
+- Émirats arabes unis
+- Japon
 
-> **Quels pays présentent des caractéristiques favorables à une stratégie d'exportation de volaille ?**
+Cette démarche permet de réduire de 98,1 % le périmètre
+initial jusqu'aux trois marchés prioritaires et d'orienter
+les futures études de faisabilité commerciale.
 
-L'objectif n'est pas simplement d'identifier les pays important les plus gros volumes de volaille.
+## Key Business Findings
 
-Un grand pays peut présenter des importations importantes en raison de sa population, tandis qu'un marché plus petit peut être particulièrement dépendant des importations.
+| Indicateur | Résultat |
+|---|---:|
+| Pays et territoires analysés | 161 |
+| Sources de données | 4 |
+| Variables d'analyse | 9 |
+| Indicateurs métier créés | 3 |
+| Valeurs manquantes finales | 0 |
+| Marchés candidats | 21 |
+| Marchés présélectionnés | 7 |
+| Marchés prioritaires | 3 |
+| Réduction du périmètre initial | 98,1 % |
 
-L'analyse adopte donc une approche multidimensionnelle combinant :
+## Business Challenge
 
-- la taille et la dynamique démographique ;
-- le niveau économique ;
-- la stabilité politique ;
-- la production locale de volaille ;
-- les importations ;
-- la disponibilité de volaille ;
-- la dépendance aux importations ;
-- l'intensité des importations par habitant.
+La Poule qui Chante commercialise actuellement ses
+produits sur le marché français et souhaite explorer
+de nouvelles opportunités de croissance à l'international.
 
----
+La direction doit identifier les marchés susceptibles
+de présenter un potentiel commercial favorable avant
+d'engager des ressources dans des études de marché
+approfondies.
 
-## 📊 Données
+Les principaux enjeux stratégiques sont :
 
-Les données utilisées proviennent principalement de sources internationales telles que la **FAO** et la **Banque mondiale**.
+- Identifier les opportunités de croissance.
+- Évaluer l'ouverture des marchés aux importations.
+- Comparer les environnements économiques.
+- Prendre en considération le risque politique.
+- Prioriser les marchés à investiguer.
+- Orienter les ressources consacrées au développement
+  international.
 
-Après préparation, nettoyage et fusion des différentes sources, le jeu de données final comprend :
+## Data Sources
 
-- **161 pays**
-- **9 variables quantitatives utilisées pour l'analyse multivariée**
-- aucune valeur manquante sur les variables finales
+L'analyse repose sur quatre sources de données issues
+de la FAO et de la Banque mondiale :
 
-### Variables retenues
+- Population mondiale.
+- Disponibilité alimentaire et marché de la volaille.
+- PIB par habitant en parité de pouvoir d'achat.
+- Indicateurs de stabilité politique.
 
-| Variable | Intérêt dans l'analyse |
-|---|---|
-| Population 2017 | Taille potentielle du marché |
-| Croissance de la population 2012–2017 | Dynamique démographique |
-| Disponibilité de volaille par habitant | Importance de la volaille dans le marché local |
-| Importations de volaille | Volume d'approvisionnement extérieur |
-| Production de volaille | Niveau de production domestique |
-| Dépendance aux importations | Intensité du recours aux importations |
-| PIB par habitant en PPA | Indicateur du niveau économique |
-| Stabilité politique | Indicateur du risque politique et institutionnel |
-| Importations de volaille par habitant | Intensité des importations corrigée de la taille du pays |
+Les données alimentaires étudiées concernent
+principalement l'année 2017, avec une analyse de
+la croissance démographique entre 2012 et 2017.
 
----
+## Business Indicators
 
-## 🛠️ Feature Engineering
+Neuf variables ont été retenues autour de quatre
+dimensions stratégiques.
 
-Trois nouvelles variables ont été créées afin d'enrichir l'analyse.
+### Market Size & Growth
 
-### Croissance démographique
+- Population.
+- Croissance démographique.
 
-```text
-(Population 2017 - Population 2012) / Population 2012 × 100
-```
+### Poultry Market
 
-Cette variable permet de distinguer les marchés démographiquement dynamiques des marchés stagnants ou en décroissance.
+- Production de volaille.
+- Importations de volaille.
+- Disponibilité de volaille par habitant.
 
-### Dépendance aux importations
+### Import Opportunities
 
-```text
-Importations de volaille / Disponibilité intérieure de volaille × 100
-```
+- Dépendance aux importations.
+- Importations de volaille par habitant.
 
-Cet indicateur permet d'évaluer l'importance des importations dans l'approvisionnement du marché.
+### Economic & Political Environment
 
-### Importations de volaille par habitant
+- PIB par habitant en PPA.
+- Stabilité politique.
 
-Cette variable permet de comparer l'intensité des importations entre des pays de tailles démographiques très différentes.
+Trois indicateurs ont été construits afin de mieux
+caractériser le potentiel des marchés :
 
----
+- Croissance démographique entre 2012 et 2017.
+- Ratio de dépendance aux importations.
+- Importations de volaille par habitant.
 
-# 🔎 Méthodologie
+## Analytical Approach
 
-L'analyse suit plusieurs étapes :
+### 1. Data Preparation & Quality
 
-```text
-Collecte des données
-        ↓
-Nettoyage et préparation
-        ↓
-Feature Engineering
-        ↓
-Analyse exploratoire
-        ↓
-Standardisation
-        ↓
-ACP
-        ↓
-CAH + K-Means
-        ↓
-Interprétation des clusters
-        ↓
-161 pays → 21 marchés candidats
-        ↓
-Application de critères métier
-        ↓
-7 marchés à approfondir
-```
+- Collecte et exploration des quatre sources.
+- Harmonisation des nomenclatures géographiques.
+- Contrôle des doublons et valeurs manquantes.
+- Fusion des données FAO et Banque mondiale.
+- Construction des indicateurs métier.
+- Analyse des corrélations.
+- Suppression d'une variable fortement redondante.
 
----
+Le dataset final contient 161 observations,
+9 variables d'analyse et aucune valeur manquante.
 
-## 1. Préparation et exploration des données
+### 2. Principal Component Analysis
 
-Les différentes sources ont été nettoyées et harmonisées avant leur fusion.
+Standardisation des variables afin de neutraliser
+les différences d'échelle.
 
-Plusieurs contrôles ont été réalisés :
+Réalisation d'une analyse en composantes principales
+pour identifier les dimensions structurantes des marchés.
 
-- valeurs manquantes ;
-- doublons ;
-- cohérence des pays ;
-- distributions des variables ;
-- valeurs atypiques ;
-- corrélations entre les variables.
+Trois composantes ont été retenues à partir de
+l'éboulis des valeurs propres, du critère de Kaiser,
+de la variance cumulée et de leur interprétabilité.
 
-L'analyse des corrélations a notamment montré une très forte corrélation entre la **production de volaille** et la **disponibilité intérieure en volume**.
+| Composante | Variance expliquée |
+|---|---:|
+| PC1 | 32,3 % |
+| PC2 | 20,8 % |
+| PC3 | 14,0 % |
+| Total | 67,13 % |
 
-Afin d'éviter une redondance excessive dans l'analyse multivariée, la disponibilité intérieure en volume n'a pas été conservée parmi les variables finales de l'ACP.
+Les dimensions identifiées concernent notamment :
 
----
+- Le niveau économique et la stabilité politique.
+- La taille démographique et la capacité de production.
+- La dynamique démographique et le recours aux importations.
 
-## 2. Standardisation
+### 3. Hierarchical Clustering
 
-Les variables utilisées présentent des unités et des ordres de grandeur très différents : population, PIB, tonnes de volaille, pourcentages, score de stabilité politique, etc.
+Application d'une classification ascendante
+hiérarchique avec la méthode de Ward.
 
-Une standardisation avec `StandardScaler` a donc été appliquée avant l'analyse multivariée.
+- Nombre de clusters retenus : 5.
+- Score de silhouette : 0,272.
 
-Elle permet de rendre les variables comparables et d'éviter qu'une variable influence l'analyse uniquement en raison de son échelle numérique.
+La segmentation permet d'identifier différents
+profils économiques et commerciaux.
 
----
+### 4. K-Means Clustering
 
-## 3. Analyse en Composantes Principales — ACP
+Comparaison de plusieurs partitions à partir
+de l'inertie et du score de silhouette.
 
-Une **Analyse en Composantes Principales (ACP)** a été réalisée afin de synthétiser les informations contenues dans les 9 variables et d'identifier les principales dimensions différenciant les pays.
+- Nombre de clusters retenus : 7.
+- Score de silhouette : 0,293.
+- Random state : 42.
 
-Les trois premières composantes représentent environ :
+La segmentation permet notamment de distinguer
+les grands importateurs en volume des marchés
+fortement dépendants des importations relativement
+à leur taille.
 
-> **67 % de la variance totale**
+### 5. Model Comparison
 
-Le choix des composantes repose notamment sur :
+Comparaison des deux partitions à l'aide
+de l'Adjusted Rand Index.
 
-- l'éboulis des valeurs propres ;
-- le critère de Kaiser ;
-- la variance expliquée cumulée ;
-- l'interprétabilité des axes.
+ARI : 0,557.
 
-Des cercles de corrélation ainsi qu'une projection des pays ont ensuite permis d'interpréter les principales dimensions de l'analyse.
+Ce résultat indique une concordance notable mais
+imparfaite entre les deux méthodes.
 
----
+Les scores de silhouette montrent une séparation
+modérée des groupes, justifiant une interprétation
+exploratoire des résultats.
 
-## 4. Classification Ascendante Hiérarchique — CAH
+### 6. Strategic Market Screening
 
-Une **Classification Ascendante Hiérarchique** utilisant la méthode de **Ward** a été appliquée afin d'identifier des groupes de pays présentant des profils similaires.
+Sélection des profils présentant des caractéristiques
+favorables à une stratégie d'exportation :
 
-Le choix du nombre de groupes s'est appuyé sur :
+- Cluster 5 de la CAH.
+- Cluster 2 de K-Means.
+- Cluster 6 de K-Means.
 
-- le dendrogramme ;
-- le coefficient de silhouette ;
-- l'interprétabilité des profils obtenus.
+Après exclusion de la France, marché domestique
+de l'entreprise, 21 marchés candidats sont identifiés.
 
-La segmentation retenue comporte :
+### 7. Business Decision Framework
 
-> **5 clusters**
+Les 21 marchés candidats sont évalués selon
+quatre critères commerciaux et économiques :
 
-Les profils moyens standardisés de chaque cluster ont ensuite été analysés afin d'identifier leurs principales caractéristiques.
+1. Volume d'importations de volaille.
+2. Dépendance aux importations.
+3. PIB par habitant en PPA.
+4. Stabilité politique.
 
----
+Chaque marché est comparé aux médianes calculées
+sur les 21 candidats.
 
-## 5. K-Means
+Les marchés répondant favorablement à au moins
+trois critères sur quatre sont présélectionnés.
 
-Une seconde méthode de clustering, **K-Means**, a été utilisée afin de comparer la structure obtenue avec la CAH.
+Cette règle constitue une méthode de présélection
+transparente et non un classement universel
+de l'attractivité commerciale.
 
-Plusieurs valeurs de `K` ont été testées.
+## Business Findings
 
-Le choix final s'est appuyé sur :
+### Market Shortlist
 
-- l'évolution de l'inertie ;
-- la méthode du coude ;
-- le coefficient de silhouette ;
-- l'interprétation des clusters.
+| Marché | Critères favorables | Importations (milliers de tonnes) | Ratio de dépendance |
+|---|---:|---:|---:|
+| Pays-Bas | 4/4 | 608 | 163,44 % |
+| Émirats arabes unis | 4/4 | 433 | 105,10 % |
+| Japon | 3/4 | 1 069 | 44,27 % |
+| Hong Kong | 3/4 | 907 | 323,93 % |
+| Belgique | 3/4 | 338 | 222,37 % |
+| Macao | 3/4 | 23 | 121,05 % |
+| Luxembourg | 3/4 | 11 | 100 % |
 
-La segmentation retenue comporte :
+### Priority Market 1 — Netherlands
 
-> **7 clusters**
+Les Pays-Bas répondent favorablement aux quatre
+critères de présélection.
 
-Les résultats de la CAH et de K-Means ne sont pas identiques mais font apparaître plusieurs structures communes.
+Le marché combine des volumes d'importation
+importants et un environnement économique
+et politique favorable selon les données étudiées.
 
-L'**Adjusted Rand Index (ARI)** obtenu est d'environ **0,56**, indiquant une concordance notable mais imparfaite entre les deux segmentations.
+Recommandation :
 
----
+Approfondir les opportunités commerciales,
+les circuits de distribution et le rôle des
+réexportations dans les flux de volaille.
 
-# 🎯 Identification des marchés candidats
+### Priority Market 2 — United Arab Emirates
 
-L'objectif du clustering n'était pas de désigner automatiquement les « meilleurs » pays, mais de faire émerger différents profils de marchés.
+Les Émirats arabes unis répondent également
+aux quatre critères de présélection.
 
-L'interprétation des clusters issus de la CAH et de K-Means a permis d'identifier plusieurs profils présentant un intérêt commercial, notamment :
+Le marché présente une forte ouverture aux
+importations et constitue une opportunité
+à investiguer au Moyen-Orient.
 
-- des marchés combinant niveau économique élevé, stabilité et recours important aux importations ;
-- des marchés présentant une forte dépendance aux importations ;
-- des pays caractérisés par des volumes d'importations particulièrement importants.
+Recommandation :
 
-Cette étape permet de réduire l'analyse de :
+Étudier les exigences sanitaires, les certifications,
+les conditions d'importation et les partenaires
+de distribution potentiels.
 
-> **161 pays → 21 marchés candidats**
+### Priority Market 3 — Japan
 
----
+Le Japon répond favorablement à trois critères
+sur quatre.
 
-# 📈 Sélection finale
+Il se distingue notamment par un volume
+d'importations de 1,069 million de tonnes
+dans les données historiques étudiées.
 
-Afin de transformer les résultats statistiques en une présélection exploitable d'un point de vue métier, les 21 marchés candidats ont été comparés selon quatre critères :
+Recommandation :
 
-1. **Volume d'importations de volaille**
-2. **Dépendance aux importations**
-3. **PIB par habitant en PPA**
-4. **Stabilité politique**
+Approfondir les segments de clientèle, les exigences
+réglementaires, la concurrence et les coûts logistiques.
 
-La médiane a été utilisée comme seuil de comparaison afin de limiter l'influence des valeurs extrêmes.
+## Strategic Recommendations
 
-Les marchés présentant un profil favorable sur **au moins 3 des 4 critères** ont été conservés.
+### Phase 1 — Market Intelligence
 
-Cette démarche aboutit à une shortlist de **7 marchés à approfondir** :
+- Actualiser les données commerciales et économiques.
+- Approfondir les trois marchés prioritaires.
+- Analyser la demande locale et les segments clients.
+- Identifier les principaux concurrents.
 
-| Marché | Positionnement |
-|---|---|
-| 🇳🇱 Pays-Bas | Profil favorable sur les 4 critères |
-| 🇦🇪 Émirats arabes unis | Profil favorable sur les 4 critères |
-| 🇯🇵 Japon | Marché important et volumes d'importations élevés |
-| 🇭🇰 Hong Kong | Forte intensité des importations |
-| 🇧🇪 Belgique | Marché fortement connecté aux importations |
-| 🇲🇴 Macao | Marché à forte dépendance et niveau économique élevé |
-| 🇱🇺 Luxembourg | Marché à niveau économique élevé et dépendant des importations |
+### Phase 2 — Commercial Feasibility
 
-Ces résultats constituent une **présélection analytique** et non un classement définitif des marchés.
+- Étudier les barrières douanières et sanitaires.
+- Identifier les certifications nécessaires.
+- Évaluer les coûts de transport et de distribution.
+- Identifier les partenaires commerciaux potentiels.
 
----
+### Phase 3 — Financial Feasibility
 
-# 💡 Principaux enseignements
+- Estimer les coûts d'entrée sur chaque marché.
+- Construire des hypothèses de chiffre d'affaires.
+- Évaluer les marges prévisionnelles.
+- Analyser les risques financiers et opérationnels.
 
-L'analyse montre l'intérêt de combiner plusieurs dimensions plutôt que de sélectionner les marchés uniquement selon leurs volumes d'importation.
+### Phase 4 — Executive Decision
 
-Les **Pays-Bas** et les **Émirats arabes unis** répondent favorablement aux quatre critères de présélection.
+- Comparer les scénarios de développement.
+- Prioriser les marchés selon leur faisabilité.
+- Envisager une phase pilote avant un déploiement
+  commercial plus important.
 
-Le **Japon** présente un profil différent : sa dépendance aux importations est moins importante, mais la taille du marché et ses volumes d'importation en font un marché pertinent à étudier davantage.
+## Business Value
 
-Les autres marchés sélectionnés présentent également des caractéristiques intéressantes, notamment en matière de dépendance aux importations ou de niveau économique.
+Cette étude fournit au comité exécutif une démarche
+structurée d'aide à la décision permettant de :
 
----
+- Réduire le périmètre des études de marché.
+- Identifier des opportunités de croissance.
+- Prioriser les ressources d'investigation.
+- Intégrer des dimensions commerciales,
+  économiques et politiques.
+- Structurer les prochaines étapes d'une stratégie
+  de développement international.
 
-# ⚠️ Limites de l'analyse
+La réduction du périmètre de recherche est mesurée.
 
-Cette étude constitue une première étape de sélection de marchés.
+Les économies potentielles, les revenus futurs
+et la rentabilité d'une expansion n'ont pas
+été mesurés.
 
-Plusieurs éléments devraient être approfondis avant toute décision d'implantation ou d'exportation :
+## Analytical Limitations
 
-- actualisation des données ;
-- réglementation sanitaire ;
-- droits de douane ;
-- contraintes d'importation ;
-- coûts logistiques ;
-- chaîne du froid ;
-- concurrence locale et internationale ;
-- prix pratiqués ;
-- habitudes de consommation ;
-- demande spécifique pour la volaille biologique.
+- Les données historiques doivent être actualisées
+  avant toute décision commerciale.
+- Les scores de silhouette indiquent une séparation
+  modérée des clusters.
+- Les seuils médians sont relatifs aux marchés candidats.
+- Le choix des critères influence la présélection.
+- Le ratio importations/disponibilité intérieure
+  peut dépasser 100 % et ne représente pas directement
+  la part de consommation importée.
+- Les réexportations doivent être étudiées.
+- Les coûts logistiques, la concurrence, les exigences
+  réglementaires et la rentabilité restent à évaluer.
 
-Les résultats permettent donc avant tout d'identifier **où approfondir l'étude**, et non de remplacer une analyse complète de faisabilité commerciale.
+La shortlist constitue une présélection quantitative,
+et non une recommandation définitive d'implantation.
 
----
+## Technical Stack
 
-# 🧰 Technologies utilisées
-
-- **Python**
-- **Pandas**
-- **NumPy**
-- **Matplotlib**
-- **Seaborn**
-- **Scikit-learn**
-- **SciPy**
-- **Jupyter Notebook**
-
-### Méthodes statistiques et Machine Learning
-
-- Analyse exploratoire des données
-- Feature Engineering
-- Standardisation
-- Analyse de corrélation
-- Analyse en Composantes Principales
-- Classification Ascendante Hiérarchique
-- Méthode de Ward
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- SciPy
+- Scikit-learn
+- StandardScaler
+- Principal Component Analysis
+- Hierarchical Clustering
 - K-Means
-- Méthode du coude
-- Coefficient de silhouette
+- Silhouette Score
 - Adjusted Rand Index
+- Feature Engineering
+- Market Intelligence
 
----
+## Project Context
 
-### `01_nettoyage_donnees.ipynb`
+Étude de cas professionnalisante réalisée dans
+le cadre du projet 11 de la certification
+Data Analyst OpenClassrooms.
 
-Préparation des données :
+## Author
 
-- import des différentes sources ;
-- nettoyage ;
-- harmonisation ;
-- fusion ;
-- analyse exploratoire ;
-- feature engineering ;
-- sélection des variables ;
-- préparation du dataset analytique.
+Ines Belhoussine
 
-### `02_acp_clustering.ipynb`
-
-Analyse multivariée :
-
-- standardisation ;
-- ACP ;
-- variance expliquée ;
-- cercles de corrélation ;
-- projection des pays ;
-- CAH ;
-- K-Means ;
-- comparaison des segmentations ;
-- interprétation des clusters ;
-- sélection des marchés candidats ;
-- shortlist finale.
-
----
-
-## 🚀 Résultat
-
-```text
-161 pays
-   ↓
-9 variables
-   ↓
-ACP
-   ↓
-CAH (5 clusters) + K-Means (7 clusters)
-   ↓
-21 marchés candidats
-   ↓
-4 critères métier
-   ↓
-7 marchés à approfondir
-```
-
-**Pays-Bas • Émirats arabes unis • Japon • Hong Kong • Belgique • Macao • Luxembourg**
-
----
-
-## 👩‍💻 À propos
-
-Projet réalisé dans le cadre de ma formation **Data Analyst**, avec pour objectif de mettre en pratique la préparation de données, l'analyse multivariée, la réduction dimensionnelle, le clustering et la traduction de résultats statistiques en recommandations métier.
+Business Data Analyst | Business Intelligence
+& Strategic Decision Support
